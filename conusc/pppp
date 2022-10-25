@@ -1,0 +1,75 @@
+
+# ## THIS IS THE NATURAL, SQRT ONE ## #
+## Part one of Kaba's pseudo green
+#
+#print("calculate green")
+green_data = (.1*veggie_data) + (.45*blue_data) + (.45*red_interpolated[::-1,:])
+##green_data = (.2*veggie_data) + (.45*blue_data) + (.35*red_interpolated[::-1,:])
+##green_data = (.15*veggie_data) + (.27*blue_data) + (.58*red_interpolated[::-1,:])
+##green_data = (.15*veggie_data) + (.10*blue_data) + (.75*red_interpolated[::-1,:])
+#
+#print("calc sqrt of red")
+#red_interpolated = np.sqrt(red_interpolated)
+#print("calc sqrt of blue")
+#blue_data = np.sqrt(blue_data)
+#print("calc sqrt of green")
+#green_data = np.sqrt(green_data)
+#
+## Kaba's second magic contrast part
+#
+## This may need to change when NOAAPORT files get fixed
+#maxValue=1.0
+#acont=0.1
+#amax=1.0067
+#amid=0.5
+#afact=(amax*(acont+maxValue)/(maxValue*(amax-acont)))
+## Red part
+#
+#print("Kaba part 2 red")
+#
+#red_interpolated = (afact*(red_interpolated-amid)+amid)
+#red_interpolated[red_interpolated <= 0.0392] = 0
+#red_interpolated[red_interpolated >=1.0] = 1.0
+#
+## Blue part
+#
+#print("Kaba part 2 blue")
+#
+#blue_data = (afact*(blue_data-amid)+amid)
+#blue_data[blue_data <= 0.0392] = 0
+#blue_data[blue_data >=1.0] = 1.0
+#
+## Green part
+#print("Kaba part 2 green")
+#
+#green_data = (afact*(green_data-amid)+amid)
+#green_data[green_data <= 0.0392] = 0
+#green_data[green_data >=1.0] = 1.0
+#
+
+# ## THIS IS THE HISTOGRAM ENHANCED VERSION ## #
+
+def histeq(im,nbr_bins=65536):
+    """    Histogram equalization of a grayscale image. """
+
+    # get image histogram
+    imhist,bins = np.histogram(im.flatten(),nbr_bins,normed=False, range=(0.002,0.998))
+    cdf = imhist.cumsum() # cumulative distribution function
+    cdf = 65535 * cdf / cdf[-1] # normalize
+
+    # use linear interpolation of cdf to find new pixel values
+    im2 = np.interp(im.flatten(),bins[:-1],cdf)
+    im2 = im2/65536.
+
+    return im2.reshape(im.shape), cdf
+
+red_interpolated_data2,rcdf = histeq(red_interpolated)
+green_data2,gcdf = histeq(green_data)
+blue_data2,bcdf = histeq(blue_data)
+
+blue_data2 = 0.95*blue_data2
+
+
+print("stack 3 colors")
+rgb_data = np.dstack([red_interpolated_data2[::-1,:], green_data2, blue_data2])
+

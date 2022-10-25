@@ -1,0 +1,26 @@
+#!/bin/bash
+# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
+#
+# It is highly advisable to create own systemd services or udev rules
+# to run scripts during boot instead of using this file.
+#
+# In contrast to previous versions due to parallel execution during boot
+# this script will NOT be run after all other services.
+#
+# Please note that you must run 'chmod +x /etc/rc.d/rc.local' to ensure
+# that this script will be executed during boot.
+
+su - poker -c "/home/poker/goes17/conusc/run_conusc_irc13m_loop.sh >& /home/poker/goes17/conusc/run_conusc_irc13m_loop.out & "
+su - poker -c "/home/poker/goes17/conusc/run_conusc_ircm_loop.sh >& /home/poker/goes17/conusc/run_conusc_ircm_loop.out & "
+su - poker -c "/home/poker/goes17/conusc/run_conusc_swir_loop.sh >& /home/poker/goes17/conusc/run_conusc_swir_loop.out & "
+su - poker -c "/home/poker/goes17/conusc/run_conusc_wvc_loop.sh >& /home/poker/goes17/conusc/run_conusc_wvc_loop.out & "
+su - poker -c "/home/poker/goes17/conusc/run_conusc_wvl_loop.sh >& /home/poker/goes17/conusc/run_conusc_wvl_loop.out & "
+su - poker -c "/home/poker/goes17/conusc/run_conusc_wvh_loop.sh >& /home/poker/goes17/conusc/run_conusc_wvh_loop.out & "
+su - poker -c "/home/poker/goes17/conusc/run_RGB_both_loop.sh >& /home/poker/goes17/conusc/run_RGB_both_loop.out & "
+su - poker -c "/home/poker/goes17/conus/run_vis_both_loop.sh >& /home/poker/goes17/conus/run_vis_both_loop.out & "
+su - poker -c "/home/poker/goes17/pacusc_4panel/run_pacusc_wv_4panel_loop.sh >& /home/poker/goes17/pacusc_4panel/run_pacusc_wv_4panel_loop.out & "
+#pacusc_4panel]$ ./run_pacusc_wv_4panel_loop.sh >& run_pacusc_wv_4panel_loop.out &
+
+su - poker -c "/home/poker/goes17_ralph/process_ABI_rgb_realtime-devel-python3.6_conus_meso/run_rgb_conus_latest.sh >& /home/poker/goes17_ralph/process_ABI_rgb_realtime-devel-python3.6_conus_meso/run_rgb_conus_latest.out &"
+
+touch /var/lock/subsys/local

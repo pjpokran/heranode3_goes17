@@ -1,0 +1,67 @@
+/home/poker/miniconda3/lib/python3.7/site-packages/matplotlib/tight_layout.py:176: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+  warnings.warn('Tight layout not applied. The left and right margins '
+20192330551
+201908210551
+/weather/data/goes16/TIRW/08/201908210551_PAA.nc
+westcoast image size
+1250 750
+hi image size
+600 599
+ne image size
+1100 750
+conus image size
+2500 1500
+gulf image size
+1775 1067
+sw image size
+999 680
+nw image size
+899 400
+GOES-17 Upper-Level WV (ABI 8)
+westcoast image size
+1250 750
+hi image size
+600 599
+ne image size
+1100 750
+conus image size
+2500 1500
+gulf image size
+1775 1067
+sw image size
+999 680
+nw image size
+899 400
+GOES-17 Mid-Level WV (ABI 9)
+westcoast image size
+1250 750
+hi image size
+600 599
+ne image size
+1100 750
+conus image size
+2500 1500
+gulf image size
+1775 1067
+sw image size
+999 680
+nw image size
+899 400
+GOES-17 Low-Level WV (ABI 10)
+westcoast image size
+1250 750
+hi image size
+600 599
+ne image size
+1100 750
+conus image size
+2500 1500
+gulf image size
+1775 1067
+sw image size
+999 680
+nw image size
+899 400
+GOES-17 IR (ABI 14)
+Valid 2019 Aug 21 05:51:19 GMT
+filename1  /whirlwind/goes17/4panel/westcoast/201908210551_westcoast.jpg
