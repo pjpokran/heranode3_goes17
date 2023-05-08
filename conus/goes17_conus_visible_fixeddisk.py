@@ -525,8 +525,16 @@ jday = time_var[4:7]
 
 date = datetime.datetime(int(jyr), 1, 1) + datetime.timedelta(int(jday)-1)
 
-time_string = 'GOES17 Red Visible (ABI ch 2)   %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
+if f.satellite_id == "GOES-17":
+    time_string = 'GOES-17 Red Visible (ABI ch 2)   %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
+elif f.satellite_id == "GOES-18":
+    time_string = 'GOES-18 Red Visible (ABI ch 2)   %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
+else:
+    time_string = 'GOES-West Red Visible (ABI ch 2)   %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
 print(time_string)
+
+#time_string = 'GOES17 Red Visible (ABI ch 2)   %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
+#print(time_string)
 
 from matplotlib import patheffects
 outline_effect = [patheffects.withStroke(linewidth=2, foreground='black')]

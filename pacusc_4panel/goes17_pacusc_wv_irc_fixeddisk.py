@@ -392,8 +392,18 @@ jday = time_var[4:7]
 date = datetime.datetime(int(jyr), 1, 1) + datetime.timedelta(int(jday)-1)
 
 #time_string = 'GOES-16 Upper-Level WV (ABI 8) valid %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
-time_string = 'GOES-17 Upper-Level WV (ABI 8)'
+
+if f.satellite_id == "GOES-17":
+    time_string = 'GOES-17 Upper-Level WV (ABI 8)'
+elif f.satellite_id == "GOES-18":
+    time_string = 'GOES-18 Upper-Level WV (ABI 8)'
+else:
+    time_string = 'GOES-West Upper-Level WV (ABI 8)'
 print(time_string)
+
+#time_string = 'GOES-17 Upper-Level WV (ABI 8)'
+#print(time_string)
+
 from matplotlib import patheffects
 outline_effect = [patheffects.withStroke(linewidth=2, foreground='black')]
 
@@ -760,8 +770,17 @@ jday = time_var[4:7]
 date = datetime.datetime(int(jyr), 1, 1) + datetime.timedelta(int(jday)-1)
 
 #time_string = 'GOES-16 Mid-Level WV (ABI 9) valid %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
-time_string = 'GOES-17 Mid-Level WV (ABI 9)'
+
+if f.satellite_id == "GOES-17":
+    time_string = 'GOES-17 Mid-Level WV (ABI 9)'
+elif f.satellite_id == "GOES-18":
+    time_string = 'GOES-18 Mid-Level WV (ABI 9)'
+else:
+    time_string = 'GOES-West Mid-Level WV (ABI 9)'
 print(time_string)
+
+#time_string = 'GOES-17 Mid-Level WV (ABI 9)'
+#print(time_string)
 
 #2017/065 20:04:00:30
 text21 = ax.text(0.50, 0.95, time_string,
@@ -1174,8 +1193,17 @@ jday = time_var[4:7]
 date = datetime.datetime(int(jyr), 1, 1) + datetime.timedelta(int(jday)-1)
 
 #time_string = 'GOES-16 Low-Level WV (ABI 10) valid %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
-time_string = 'GOES-17 Low-Level WV (ABI 10)'
+
+if f.satellite_id == "GOES-17":
+    time_string = 'GOES-17 Low-Level WV (ABI 10)'
+elif f.satellite_id == "GOES-18":
+    time_string = 'GOES-18 Low-Level WV (ABI 10)'
+else:
+    time_string = 'GOES-West Low-Level WV (ABI 10)'
 print(time_string)
+
+#time_string = 'GOES-17 Low-Level WV (ABI 10)'
+#print(time_string)
 
 #2017/065 20:04:00:30
 text31 = ax.text(0.50, 0.95, time_string,
@@ -1210,7 +1238,7 @@ text314.set_path_effects(outline_effect)
 
 # START IR 
 
-band="14"
+band="13"
 filechar=['AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM',
           'AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ',
           'BA','BB','BC','BD','BE','BF','BG','BH','BI','BJ','BK','BL','BM',
@@ -1621,8 +1649,17 @@ jday = time_var[4:7]
 date = datetime.datetime(int(jyr), 1, 1) + datetime.timedelta(int(jday)-1)
 
 #time_string = 'GOES-16 IR (ABI 14) valid %s '%date.strftime('%Y %b %d')+time_var[7:9]+":"+time_var[9:11]+":"+time_var[11:13]+" GMT"
-time_string = 'GOES-17 IR (ABI 14)'
+
+if f.satellite_id == "GOES-17":
+    time_string = 'GOES-17 IR (ABI 13)'
+elif f.satellite_id == "GOES-18":
+    time_string = 'GOES-18 IR (ABI 13)'
+else:
+    time_string = 'GOES-West IR (ABI 13)'
 print(time_string)
+
+#time_string = 'GOES-17 IR (ABI 14)'
+#print(time_string)
 
 #2017/065 20:04:00:30
 text41 = ax.text(0.50, 0.95, time_string,
